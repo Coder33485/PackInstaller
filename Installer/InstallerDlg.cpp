@@ -342,7 +342,7 @@ void CInstallerDlg::Install()
 	HKEY hKey = nullptr;
 	int DWORD1 = 1;
 	RegCreateKeyEx(HKEY_LOCAL_MACHINE, CString(L"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\") + RegKeyName, 0, nullptr, 0, KEY_ALL_ACCESS, nullptr, &hKey, nullptr);
-	RegSetValueEx(hKey, L"DisplayIcon", 0, REG_SZ, (LPBYTE)(Path + L"\\DispalyIcon.ico").GetString(), (Path.GetLength() + 17) * sizeof(WCHAR));
+	RegSetValueEx(hKey, L"DisplayIcon", 0, REG_SZ, (LPBYTE)(Path + ExecutableFileRelativePath).GetString(), (Path.GetLength() + 17) * sizeof(WCHAR));
 	RegSetValueEx(hKey, L"DisplayName", 0, REG_SZ, (LPBYTE)DefaultName, (wcslen(DefaultName) + 1) * sizeof(WCHAR));
 	RegSetValueEx(hKey, L"HelpLink", 0, REG_SZ, (LPBYTE)HelpLink, (wcslen(HelpLink) + 1) * sizeof(WCHAR));
 	RegSetValueEx(hKey, L"InstallLocation", 0, REG_SZ, (LPBYTE)Path.GetString(), (Path.GetLength() + 1) * sizeof(WCHAR));

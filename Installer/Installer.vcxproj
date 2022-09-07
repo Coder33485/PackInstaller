@@ -408,11 +408,11 @@
     <ResourceCompile Include="Installer.rc" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\MHS-Installer\Installer\res\Uninstaller.exe" />
     <None Include="res\7za.dll" />
     <None Include="res\7za.exe" />
     <None Include="res\Installer.rc2" />
     <None Include="res\Pack.zip" />
+    <None Include="res\Uninstaller.exe" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\Installer.ico" />
