@@ -17,7 +17,9 @@
 
 using namespace std;
 
-wchar_t RegKeyName[128] = L"Installer Test Package";
+wchar_t
+RegKeyName[] = L"Installer Test Package",
+ProgramName[] = L"²âÊÔ°²×°°ü";
 
 int main(int argc, char* argv[])
 {
@@ -34,8 +36,6 @@ int main(int argc, char* argv[])
 	}
 	GetLocalFolderPath(Path, 128);
 	SetCurrentDirectory(Path);
-	ExpResource(L".\\Uninstall_DeletePath_ByCoder33485.bat", IDR_BAT_DELETE, L"BAT");
-	ShellExecuteA(nullptr, "runas", ".\\Uninstall_DeletePath_ByCoder33485.bat", nullptr, nullptr, SW_HIDE);
 	if (RegGetValue(hKey, nullptr, L"InstallLocation", RRF_RT_REG_SZ, nullptr, Path, &PathLen) != ERROR_SUCCESS)
 	{
 		RegCloseKey(hKey);
@@ -61,6 +61,10 @@ int main(int argc, char* argv[])
 		}
 		CloseHandle(ShExecInfo.hProcess);
 	}
+	Delete((std::wstring(L"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\") + ProgramName).c_str());
+	Delete((std::wstring(L"C:\\Users\\Public\\Desktop\\") + ProgramName + L".lnk").c_str());
 	RegDeleteKey(HKEY_LOCAL_MACHINE, (std::wstring(L"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\") + RegKeyName).c_str());
+	ExpResource(L".\\Uninstall_DeletePath_ByCoder33485.bat", IDR_BAT_DELETE, L"BAT");
+	ShellExecuteA(nullptr, "runas", ".\\Uninstall_DeletePath_ByCoder33485.bat", nullptr, nullptr, SW_HIDE);  
 	return 0;
 }
