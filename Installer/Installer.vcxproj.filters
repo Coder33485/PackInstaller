@@ -69,7 +69,7 @@
     <None Include="res\7za.exe">
       <Filter>资源文件</Filter>
     </None>
-    <None Include="..\x64\Release\Uninstaller.exe">
+    <None Include="..\..\MHS-Installer\Installer\res\Uninstaller.exe">
       <Filter>资源文件</Filter>
     </None>
   </ItemGroup>
