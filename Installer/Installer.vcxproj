@@ -385,6 +385,7 @@
     <ClInclude Include="GetPathDlg.h" />
     <ClInclude Include="Installer.h" />
     <ClInclude Include="InstallerDlg.h" />
+    <ClInclude Include="json.hpp" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />
